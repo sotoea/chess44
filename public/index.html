@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Multiplayer Lobby</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #lobby,
+      #game {
+        display: none;
+      }
+      #rooms {
+        list-style: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lobby">
+      <h2>Active Rooms</h2>
+      <ul id="rooms"></ul>
+      <input id="newRoomName" placeholder="New room name" />
+      <button id="createBtn">Create Room</button>
+    </div>
+
+    <div id="waiting">
+      <h2>Waiting in <span id="roomLabel"></span></h2>
+      <p>Players in room: <span id="playerCount">0</span>/4</p>
+      <button id="startBtn" disabled>Start Game</button>
+      <button id="leaveBtn">Leave Room</button>
+    </div>
+
+    <div id="game">
+      <button id="exitBtn">Exit to Lobby</button>
+      <div id="sketch-container"></div>
+    </div>
+
+    <script src="client.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
